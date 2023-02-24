@@ -4,6 +4,9 @@ pqx=0;
 pqy=0;
 song1 = "";
 song2 = "";
+gnpqy = 0;
+rdeci = 0;
+gspqy = 0;
 
 function preload(){
     song1 = loadSound("videoplayback.mp3");
@@ -11,7 +14,7 @@ function preload(){
 }
 
 function setup(){
-    canvas = createCanvas(500,400)
+    canvas = createCanvas(600,500)
     canvas.position(425, 225)
     video = createCapture(VIDEO);
     video.hide()
@@ -34,8 +37,15 @@ function modelLoaded(){
 }
 
 function draw(){
-    image(video, 0, 0, 500, 400)
-    circle(pdx,pdy,30)
+    image(video, 0, 0, 600, 500)
+    fill("#836FFF");
+    stroke("black")
+    if(gspqy>0.2){
+        circle(pdx,pdy,30)
+        song1.play()
+        song1.setVolume(1)
+        song1.rate(1.0)
+    }
 }
 
 function play(){
