@@ -38,13 +38,25 @@ function modelLoaded(){
 
 function draw(){
     image(video, 0, 0, 600, 500)
+    song1_status = song1. IsPlaying();
+    song2_status = song2. IsPlaying();
     fill("#836FFF");
     stroke("black")
-    if(gspqy>0.2){
+    if(gspdy>0.2){
         circle(pdx,pdy,30)
-        song1.play()
-        song1.setVolume(1)
-        song1.rate(1.0)
+        song2.stop();
+        if(song1_status == false){
+            song1.play();
+            document.getElementById("ndm").innerHTML = "Nome da musica: Hit The Road Jack"
+        }
+    }
+    if(gspqy>0.2){
+        circle(pqx,pqy,30)
+        song1.stop();
+        if(song2_status == false){
+            song2.play();
+            document.getElementById("ndm").innerHTML = "Nome da musica: Scatman (ski-ba-bop-ba-dop-bop)"
+        }
     }
 }
 
